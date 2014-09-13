@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+
+    %title Audio Garden RTC
+
+    %script{:src => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js", :type => "text/javascript"}
+    %script{:src => "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js", :type => "text/javascript"}
+    %script{:src => "/js/audio_garden.js", :type => "text/javascript"}
+    %script{:src => "//cdnjs.cloudflare.com/ajax/libs/howler/1.1.17/howler.min.js", :type => "text/javascript"}
+    %link{:href => "/css/styles.css", :rel => "stylesheet", :type => "text/css"}/
+
+  %body.audio_garden_gardens_index
+
+    #btn_container
+      %button.btn.reset Clear
+
+    %canvas
+
+    :javascript
+      $(function(){
+        var ws = new WebSocket("ws://0.0.0.0:8081/");
+        new audioGarden(ws);
+      });

@@ -1,0 +1,12 @@
+files = %w(rubygems sinatra eventmachine em-websocket sinatra/base thin sequel sqlite3 json haml)
+files.each{|e| require e}
+
+require "./env.rb"
+require "./app/controllers/application_controller.rb"
+require './audio_garden.rb'
+require './db/schema.rb'
+require './app/models/note.rb'
+require "./app.rb"
+
+
+AudioGarden.run AudioGarden::App.new
