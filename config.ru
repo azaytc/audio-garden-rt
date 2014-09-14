@@ -3,10 +3,9 @@ files.each{|e| require e}
 
 require "./env.rb"
 require "./app/controllers/application_controller.rb"
-require './audio_garden.rb'
+require './app/lib/audio_garden.rb'
 require './db/schema.rb'
 require './app/models/note.rb'
-require "./app.rb"
 
 
 AudioGarden.run AudioGarden::App.new
