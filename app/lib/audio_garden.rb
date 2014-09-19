@@ -15,15 +15,13 @@ module AudioGarden
 
         ws.onopen do
           @sockets << ws
-          notes = Note.all
-          ws.send(notes.map(&:values).to_json) 
+          ws.send(Note.current) 
         end
 
         ws.onmessage do |msg|
           params = JSON.parse(msg)
           Note.execute(params)
-          notes = Note.all
-          push(notes)
+          broadcast
         end
 
         ws.onclose do
@@ -43,8 +41,8 @@ module AudioGarden
 
   private 
 
-  def self.push(notes)
-    EventMachine.next_tick { @sockets.each{ |s| s.send(notes.map(&:values).to_json) } }
+  def self.broadcast
+    EventMachine.next_tick { @sockets.each{ |s| s.send(Note.current) } }
   end
 
 end

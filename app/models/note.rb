@@ -1,5 +1,9 @@
 class Note < Sequel::Model
 
+  def self.current
+    self.all.map(&:values).to_json
+  end
+
   def self.execute(params)
     @params = params
     self.send(params['command'])
