@@ -21,7 +21,8 @@ module AudioGarden
 
         ws.onmessage do |msg|
           params = JSON.parse(msg)
-          notes = Note.process_data(params)
+          Note.execute(params)
+          notes = Note.all
           push(notes)
         end
 
