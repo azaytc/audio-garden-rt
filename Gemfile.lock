@@ -1,16 +1,43 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    base (0.0.2)
     daemons (1.2.2)
+    diff-lcs (1.2.5)
+    docile (1.1.5)
+    em-rspec (0.1.1)
+      eventmachine (>= 0.12.10)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     eventmachine (1.0.7)
     haml (4.0.6)
       tilt
+    http_parser.rb (0.6.0)
     json (1.8.2)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.3)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
     sequel (4.21.0)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -26,11 +53,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  base
+  em-rspec
+  em-websocket
   eventmachine
   haml
   json
+  rack-test
+  rspec
   sequel
+  simplecov
   sinatra
   sqlite3
   thin

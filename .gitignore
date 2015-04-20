@@ -2,7 +2,7 @@
 *.rbc
 *.db
 /.config
-/coverage/
+/coverage
 /InstalledFiles
 /pkg/
 /spec/reports/

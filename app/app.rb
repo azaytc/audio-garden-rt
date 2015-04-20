@@ -6,6 +6,5 @@ module AudioGarden
     get '/' do
       haml :index
     end
-    
   end
 end
